@@ -8,12 +8,8 @@ const getProductsList = async () => {
         });
         $("#product-wrapper").html(html);
 
-        // const fullPath = window.location.pathname;
-        // const pathParts = fullPath.split('/');
-        // const idParam = pathParts[pathParts.length - 1];
         const urlParams = new URLSearchParams(window.location.search);
-        const idParam = urlParams.get('id');   // Output: "30"
-        console.log(urlParams, 'urlParams');
+        const idParam = urlParams.get('id')
         const [id, name, desc, price, image, wa, shopee] = heroData.find(e => e[0] === idParam)
         $("#title-detail").text(name);
         $("#desc-detail").text(desc);
