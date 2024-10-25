@@ -38,9 +38,23 @@ const getProductsList = async () => {
         console.log('No product to display.');
     }
 }
+const get3Item = async () => {
+    const heroData = await fetchData(API_3_PRODUCT);
+    if (heroData) {
+        let html = ""
+        heroData?.slice(1)?.forEach((row, index) => {
+            const [title, image] = row
+            html += threeComponent({ title, image })
+        });
+        $("#wrap-3-item").html(html);
+    } else {
+        console.log('No hero to display.');
+    }
+}
 
 // Run when the document is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     getImageHero();
     getProductsList()
+    get3Item()
 });

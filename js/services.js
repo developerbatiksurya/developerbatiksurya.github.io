@@ -1,5 +1,6 @@
 const API_HERO = 'https://sheets.googleapis.com/v4/spreadsheets/1iJqfkCYlP-W1SFD9HgqfW2L-h3JNAb9euwI4M8gPRG8/values/HERO!A:D?key=AIzaSyDy-U4dxapqvqdpJYtAXfeEtQzcMT3eOK8'
 const API_PRODUCT = 'https://sheets.googleapis.com/v4/spreadsheets/1iJqfkCYlP-W1SFD9HgqfW2L-h3JNAb9euwI4M8gPRG8/values/PRODUCTS!A:G?key=AIzaSyDy-U4dxapqvqdpJYtAXfeEtQzcMT3eOK8'
+const API_3_PRODUCT = 'https://sheets.googleapis.com/v4/spreadsheets/1iJqfkCYlP-W1SFD9HgqfW2L-h3JNAb9euwI4M8gPRG8/values/ITEM!A:D?key=AIzaSyDy-U4dxapqvqdpJYtAXfeEtQzcMT3eOK8'
 
 const fetchData = async (apiUrl) => {
     try {
@@ -52,7 +53,7 @@ const productComponent = ({ id, name, desc, price, image, wa, shopee }) => {
                                             style="width: 215px; height: 215px;"
                                             alt="image description"></a>
                                     <ul class="links">
-                                        <li><a href="${onDetail()}"><i class="icon-handbag"></i><span>Buy Now</span></a></li>
+                                        <li><a href="${onDetail()}"><i class="icon-handbag"></i><span>Lihat Produk</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -70,9 +71,8 @@ const bannerComponent = ({ slug, h1, h2, image }) => {
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="text centerize">
-                                <strong class="title">FURNITURE DESIGNS IDEAS</strong>
-                                <h1>${slug}</h1>
-                                <h2>${h1}</h2>
+                                <strong class="title">${slug}</strong>
+                                <h1>${h1}</h1>
                                 <div class="txt">
                                     <p>${h2}</p>
                                 </div>
@@ -80,6 +80,36 @@ const bannerComponent = ({ slug, h1, h2, image }) => {
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>`
+}
+
+const emptyComponent = () => `
+      <section class="mt-error-sec dark style3">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <div class="error-holder pull-right">
+                  <h1 class="text-uppercase montserrat">Produk Tidak DItemukan!</h1>
+                  <div class="txt">
+                    <p>Maaf produk yang anda buka tidak ditemukan!</p>
+                  </div>
+                  <a href="index.html" style="width:205px;" class="btn-back text-uppercase">Kembali ke Beranda</a>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <span class="error-code2 montserrat">404</span>
+              </div>
+            </div>
+          </div>
+        </section>
+`
+
+const threeComponent = ({ title, image }) => {
+    return `<div class="banner-17 white col-md-3">
+                <img src="${image}" style="width: 385px;height: 275px;" alt="${title}">
+                <div class="holder">
+                    <h4>${title}</h4>
                 </div>
             </div>`
 }
