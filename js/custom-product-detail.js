@@ -17,8 +17,8 @@ const getProductsList = async () => {
             $("#desc-detail").text(desc);
             $("#price-detail").text("Rp" + convertToRupiah(price));
             $("#img-detail").attr("src", image);
-            $("#btn-wa").attr("href", wa);
             $("#btn-shopee").attr("href", shopee);
+            shopee ? $("#btn-shopee").attr("href", shopee) : $("#btn-shopee").hide()
         } else {
             $("#product-info-wrapper").html(emptyComponent());
         }
